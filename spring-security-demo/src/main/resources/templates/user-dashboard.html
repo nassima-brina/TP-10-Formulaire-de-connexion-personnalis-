@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Espace Utilisateur</title>
-</head>
-<body>
-<h1>Espace Utilisateur</h1>
-<p>Bienvenue dans votre tableau de bord utilisateur.</p>
-<p>Vous avez le rôle <strong>USER</strong>.</p>
+<h2>Espace Utilisateur</h2>
+<p>Accessible aux rôles USER et ADMIN.
 
-<a href="/">Retour à l'accueil</a> |
-<a href="/logout">Se déconnecter</a>
-</body>
-</html>
+    <a th:href="@{/logout}">Déconnexion</a>
