@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion - Spring Security</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+        }
+        .error { color: red; font-weight: bold; }
+        .success { color: green; font-weight: bold; }
+        form { max-width: 400px; margin: 0 auto; }
+        label { display: block; margin-top: 15px; text-align: left; }
+        input { width: 100%; padding: 8px; margin-top: 5px; }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<h2>Authentification</h2>
+
+<!-- Message d'erreur -->
+<div th:if="${param.error}" class="error">
+     Identifiants incorrects ! Veuillez réessayer.
+</div>
+
+<!-- Message de déconnexion -->
+<div th:if="${param.logout}" class="success">
+     Vous avez été déconnecté avec succès.
+</div>
+
+<form th:action="@{/login}" method="post">
+    <label>Nom d'utilisateur :</label>
+    <input type="text" name="username" required />
+
+    <label>Mot de passe :</label>
+    <input type="password" name="password" required />
+
+    <button type="submit">Se connecter</button>
+</form>
+</body>
+</html>
